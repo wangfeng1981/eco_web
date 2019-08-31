@@ -316,7 +316,7 @@
                                             <path d="M 12.5,0 25,8 0,8 z" class="uparrow"></path>
                                         </svg>
                                     </div>
-                                    <input type="text" size="3" maxlength="3" class="button-input-group" id="" tabindex="2" step="1" value="AUG" style="font-size: 24px;">
+                                    <input type="text" size="3" maxlength="3" class="button-input-group" id="" tabindex="2" step="1" value="八月" style="font-size: 24px;">
                                     <div class="date-arrows date-arrow-down" data-interval="month">
                                         <svg width="25" height="8">
                                             <path d="M 12.5,0 25,8 0,8 z" class="downarrow"></path>
@@ -341,7 +341,12 @@
                         <div id="zoom-buttons-group">
                             <div id="timeline-interval-btn-container" class="interval-btn-container noselect"><span id="current-interval" class="interval-btn interval-btn-active">1 day</span>
                                 <div class="wv-tooltip" style="display: none;">
-                                    <div id="timeline-interval" class="timeline-interval"><span id="interval-years" class="interval-btn interval-years">Year</span><span id="interval-months" class="interval-btn interval-months">Month</span><span id="interval-days" class="interval-btn interval-days">Day</span><span id="interval-custom" class="interval-btn interval-custom custom-interval-text" style="display: none;">Custom</span><span id="interval-custom-static" class="interval-btn interval-custom custom-interval-text">Custom</span>
+                                    <div id="timeline-interval" class="timeline-interval">
+                                        <span id="interval-years" class="interval-btn interval-years">Year</span>
+                                        <span id="interval-months" class="interval-btn interval-months">Month</span>
+                                        <span id="interval-days" class="interval-btn interval-days">Day</span>
+                                        <span id="interval-custom" class="interval-btn interval-custom custom-interval-text" style="display: none;">Custom</span>
+                                        <span id="interval-custom-static" class="interval-btn interval-custom custom-interval-text">Custom</span>
                                     </div>
                                 </div>
                             </div>
@@ -358,641 +363,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button-action-group animate-button" title="Set up animation">
-                            <div id="animate-button"><i class="fas fa-video wv-animate"></i>
-                            </div>
-                        </div>
+ 
                     </div>
-                    <div id="timeline-footer" style="display: block;">
-                        <div class="timeline-axis-container" style="width: 1512px;">
-                            <svg class="timeline-axis-svg" id="timeline-footer-svg" width="1512" height="64" viewBox="0 0 1512 64" preserveAspectRatio="xMinYMin slice">
-                                <defs>
-                                    <clippath id="textDisplay">
-                                        <rect width="200" height="64"></rect>
-                                    </clippath>
-                                    <clippath id="timelineBoundary">
-                                        <rect width="1512" height="64"></rect>
-                                    </clippath>
-                                </defs>
-                                <g class="react-draggable" transform="translate(-378,0)" style="touch-action: none;">
-                                    <g class="axis-grid-container" transform="translate(374.85777777777776, 0)">
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(0, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(2.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(12, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(14.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(13, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(13, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(24, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(26.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(25, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(25, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(36, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(38.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(37, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(37, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(48, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="62" transform="translate(50.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(49, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="62" transform="translate(49, 0)"></line>
-                                        </g>
-                                        <text class="axis-grid-text" x="0" y="42" fill="white" transform="translate(56, 20)" clip-path="url(#textDisplay)">JUN</text>
-                                        <text class="axis-grid-text axis-grid-text-year" x="0" y="42" fill="#cccccc" transform="translate(96, 20)" clip-path="url(#textDisplay)">2019</text>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(60, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(62.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(61, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(61, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(72, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(74.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(73, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(73, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(84, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(86.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(85, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(85, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(96, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(98.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(97, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(97, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(108, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(110.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(109, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(109, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(120, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(122.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(121, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(121, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(132, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(134.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(133, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(133, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(144, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(146.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(145, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(145, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(156, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(158.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(157, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(157, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(168, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(170.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(169, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(169, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(180, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(182.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(181, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(181, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(192, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(194.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(193, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(193, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(204, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(206.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(205, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(205, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(216, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(218.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(217, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(217, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(228, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(230.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(229, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(229, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(240, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(242.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(241, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(241, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(252, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(254.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(253, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(253, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(264, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(266.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(265, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(265, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(276, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(278.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(277, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(277, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(288, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(290.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(289, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(289, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(300, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(302.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(301, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(301, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(312, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(314.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(313, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(313, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(324, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(326.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(325, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(325, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(336, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(338.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(337, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(337, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(348, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(350.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(349, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(349, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(360, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(362.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(361, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(361, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(372, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(374.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(373, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(373, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(384, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(386.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(385, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(385, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(396, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(398.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(397, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(397, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(408, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="62" transform="translate(410.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(409, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="62" transform="translate(409, 0)"></line>
-                                        </g>
-                                        <text class="axis-grid-text" x="0" y="42" fill="white" transform="translate(416, 20)" clip-path="url(#textDisplay)">JUL</text>
-                                        <text class="axis-grid-text axis-grid-text-year" x="0" y="42" fill="#cccccc" transform="translate(456, 20)" clip-path="url(#textDisplay)">2019</text>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(420, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(422.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(421, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(421, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(432, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(434.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(433, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(433, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(444, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(446.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(445, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(445, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(456, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(458.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(457, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(457, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(468, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(470.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(469, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(469, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(480, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(482.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(481, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(481, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(492, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(494.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(493, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(493, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(504, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(506.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(505, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(505, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(516, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(518.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(517, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(517, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(528, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(530.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(529, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(529, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(540, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(542.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(541, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(541, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(552, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(554.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(553, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(553, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(564, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(566.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(565, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(565, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(576, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(578.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(577, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(577, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(588, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(590.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(589, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(589, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(600, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(602.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(601, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(601, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(612, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(614.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(613, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(613, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(624, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(626.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(625, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(625, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(636, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(638.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(637, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(637, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(648, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(650.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(649, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(649, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(660, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(662.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(661, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(661, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(672, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(674.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(673, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(673, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(684, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(686.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(685, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(685, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(696, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(698.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(697, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(697, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(708, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(710.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(709, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(709, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(720, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(722.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(721, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(721, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(732, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(734.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(733, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(733, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(744, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(746.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(745, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(745, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(756, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(758.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(757, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(757, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(768, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(770.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(769, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(769, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(780, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="62" transform="translate(782.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(781, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="62" transform="translate(781, 0)"></line>
-                                        </g>
-                                        <text class="axis-grid-text" x="0" y="42" fill="white" transform="translate(788, 20)" clip-path="url(#textDisplay)">AUG</text>
-                                        <text class="axis-grid-text axis-grid-text-year" x="0" y="42" fill="#cccccc" transform="translate(828, 20)" clip-path="url(#textDisplay)">2019</text>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(792, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(794.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(793, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(793, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(804, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(806.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(805, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(805, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(816, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(818.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(817, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(817, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(828, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(830.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(829, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(829, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(840, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(842.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(841, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(841, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(852, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(854.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(853, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(853, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(864, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(866.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(865, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(865, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(876, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(878.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(877, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(877, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(888, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(890.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(889, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(889, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(900, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(902.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(901, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(901, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(912, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(914.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(913, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(913, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(924, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(926.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(925, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(925, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(936, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(938.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(937, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(937, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(948, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(950.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(949, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(949, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(960, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(962.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(961, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(961, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(972, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(974.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(973, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(973, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(984, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(986.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(985, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(985, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(996, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(998.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(997, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(997, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1008, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1010.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1009, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1009, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1020, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1022.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1021, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1021, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1032, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1034.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1033, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1033, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1044, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1046.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1045, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1045, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1056, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1058.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1057, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1057, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1068, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="22" transform="translate(1070.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1069, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="2" x1="0" x2="0" y1="0" y2="22" transform="translate(1069, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1080, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1082.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1081, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1081, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1092, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1094.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1093, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1093, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1104, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1106.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1105, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1105, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1116, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1118.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1117, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1117, 0)"></line>
-                                        </g>
-                                        <g>
-                                            <rect class="axis-grid-rect" width="12" height="65" transform="translate(1128, 0)" fill="rgba(0,0,0,0)"></rect>
-                                            <line class="axis-grid-line" stroke="black" stroke-linecap="round" stroke-width="0.2" x1="0" x2="0" y1="0" y2="10" transform="translate(1130.2, 0)"></line>
-                                            <line class="axis-grid-line" stroke="#555" stroke-width="1" x1="0" x2="12" y1="46" y2="46" transform="translate(1129, 0)"></line>
-                                            <line class="axis-grid-line" stroke="white" stroke-linecap="round" stroke-width="1" x1="0" x2="0" y1="0" y2="10" transform="translate(1129, 0)"></line>
-                                        </g>
-                                    </g>
-                                </g>
-                            </svg>
-                        </div>
-                        <svg class="dragger-container" width="1512" height="83">
-                            <g class="timeline-dragger draggerA react-draggable" transform="translate(1110,19)" style="touch-action: none; cursor: pointer; display: block;">
-                                <path fill="#ccc" stroke="#333" stroke-width="1px" d="M5.706 47.781 C2.77 47.781.39 45.402.39 42.467 v-16.592 l11.391-12.255 11.391-12.255 11.391 12.255 11.391 12.255 v16.592 c0 2.935-2.38 5.314-5.316 5.314 h-34.932z"></path>
-                                <rect pointer-events="none" fill="#515151" width="3" height="20" x="15" y="18"></rect>
-                                <rect pointer-events="none" fill="#515151" width="3" height="20" x="21" y="18"></rect>
-                                <rect pointer-events="none" fill="#515151" width="3" height="20" x="27" y="18"></rect>
-                            </g>
-                        </svg>
-                    </div>
-                    <div class="zoom-level-change" style="display: block;">
-                        <div>
-                            <div class="zoom-level-change-arrows">
-                                <div id="zoom-btn-container-axis"><span id="current-zoom" class="zoom-btn zoom-level-display-text zoom-day">day</span>
-                                    <div class="wv-zoom-tooltip" style="display: none;">
-                                        <div id="timeline-zoom" class="timeline-zoom">
-                                            <label style="text-decoration: underline; padding-bottom: 4px; color: rgb(255, 255, 255);">TIMESCALE</label><span id="zoom-years" class="zoom-btn zoom-years">YEAR</span><span id="zoom-months" class="zoom-btn zoom-months">MONTH</span><span id="zoom-days" class="zoom-btn zoom-days">DAY</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="date-arrows date-arrow-up">
-                                    <svg width="25" height="8">
-                                        <path d="M 12.5,0 25,8 0,8 z" class="uparrow"></path>
-                                    </svg>
-                                </div>
-                                <div class="date-arrows date-arrow-down">
-                                    <svg width="25" height="8">
-                                        <path d="M 12.5,0 25,8 0,8 z" class="downarrow"></path>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+ 
+ 
                     <div id="timeline-hide">
                         <div class="wv-timeline-hide wv-timeline-hide-double-chevron-right"></div>
                     </div>
                 </section>
             </div>
+            <!-- 时间轴 end -->
+
             <div id="wv-animation-widet-case"></div>
         </div>
     </div>
@@ -1079,11 +460,261 @@
     <!-- test欢迎页面 end -->
 
 
+    <!-- 添加图层对话框 -->
+    <div class="modal fade" id="modalAddLayer" tabindex="-1" role="dialog" aria-labelledby="modalAddLayerTitle" aria-hidden="true">
+        <div id="layer_picker_component" class="modal-dialog custom-layer-dialog light" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <div id="layer-search" class="layer-search input-group"><input id="layers-search-input" placeholder="搜索" type="search" class="form-control" value=""></div>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="layer-modal-content" class="layer-modal-content">
+                        <div class="scrollbar-visible" data-simplebar="init" style="max-height: 504px;">
+                            <div class="simplebar-track vertical" style="visibility: visible;">
+                                <div class="simplebar-scrollbar" style="height: 172px; transform: translate3d(0px, 0px, 0px);"></div>
+                            </div>
+                            <div class="simplebar-track horizontal" style="visibility: hidden;">
+                                <div class="simplebar-scrollbar"></div>
+                            </div>
+                            <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+                                <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+                                    <div class="product-outter-list-case">
+                                        <div class="layer-picker-list-case layers-all" id="productGroupsParent">
+                                            <div id="legacy-all-list">
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>全国遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup1">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup1" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>山东省局遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup2">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup2" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>广西局遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup3">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup3" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>云南局遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup4">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup4" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>安徽局遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup5">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup5" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
+                                                    <div class="measurement-row-header">
+                                                        <h3>江苏省局遥感产品</h3>
+                                                        <h5>FY3D / MERSI-II</h5>
+                                                        <i class="fa fa-chevron-circle-right arrow-icon"
+                                                            data-toggle="collapse" data-target="#productGroup6">
+                                                        </i>
+                                                    </div>
+                                                    <div class="container" id="productGroup6" data-parent="#productGroupsParent">
+                                                        <div class="row">
+                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                            </ul>
+                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
+                                                                <div class="tab-pane active">
+                                                                    <div>
+                                                                        <ul class="source-settings source-sub-group list-group">
+                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
+                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="source-metadata overflow">
+                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
+                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
+                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
+                                                                        </div>
+                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 添加图层对话框 end -->
+
+
+
  
     <script>
         
         //$('#exampleModalScrollable').modal('show');
-
+        $('#modalAddLayer').modal('show');
 
 
         //openlayers
