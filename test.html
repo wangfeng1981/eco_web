@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+    <script src="./js/babel.min.js"></script>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/babel">
+	
+	var arr = [
+		{name:'ABC'},
+		{name:'Hello'},
+		{name:'World'},
+		{name:'Boy'}
+	];
+
+
+	class WItem extends React.Component{
+		constructor(props) {
+		  super(props);
+		  this.info = props.info;
+		  this.state  = {ai:props.ai} ;
+		  console.log( 'construct: ' + this.info.name ) ;
+		} 
+
+//		componentDidUpdate(nextProps) {
+//            //must wrap in if condition , else run in infinite loop.
+//            console.log('update: '+ this.state.ai + ' --->  '+ nextProps.ai ) ;
+//            if( this.state.ai !== nextProps .ai )
+//            {
+//                console.log('update: ' + nextProps.ai) ;
+//                this.setState({ ai: nextProps.ai });  
+//            }
+//			
+//		}
+        
+        static getDerivedStateFromProps(props, state)
+        {
+            var newState = {ai:props.ai} ;
+            if( props.ai != state.ai )
+                {
+                    return newState ;
+                }else
+                    {
+                        return null ;
+                    }
+            
+        }
+
+
+		render () {
+            
+			if( this.info.name  == this.state.ai )
+                {
+                     
+                    return (
+                    <button style={{backgroundColor: 'aqua'}} onClick={this.props.updateParent}>{this.info.name}</button>
+                    ) ;
+                }else
+                {
+ 
+                    return (
+                    <button onClick={this.props.updateParent}>{this.info.name}</button>
+                    ) ;
+                }
+
+		}
+	}
+
+	class WList extends React.Component{
+		constructor(props) {
+		  super(props);
+		  this.state = {ai: arr[0].name } ;
+		  this.buttonClicked = this.buttonClicked.bind(this) ;
+		}
+
+		buttonClicked(e)
+		{
+			this.setState( {ai:e.target.innerHTML} ) ;
+		}
+
+		render () {
+            console.log("list render:") ;
+		  return (
+		  	arr.map(
+			  	(a1,index)=>
+			  		<WItem key={index} info={a1} ai={this.state.ai}  updateParent={this.buttonClicked} />
+		  		)
+		  	);
+		}
+    }
+
+
+
+    ReactDOM.render(
+      <WList />,
+      document.getElementById('test')
+    );
+
+
+</script>
+</body>
+</html>

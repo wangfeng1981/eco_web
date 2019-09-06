@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>风云卫星生态监测服务平台</title>
+     <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script type="text/javascript">
+        if (/MSIE (\d+\.\d+);/.test(navigator.userAgent) && ! /unsupported/.test(location.search)) {
+              var version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+              if (version < 11) {
+                document.location.replace("pages/unsupported_browser.html" + location.search);
+              }
+            }
+    </script>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- favicon  -->
+    <!-- meta defines -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="keywords" content="fengyun, cma, ecosystem">
+    <meta name="description" content="fengyun satellite ecosystem monitor platform.">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-store">
+    <meta http-equiv="Pragma" content="no-cache">
+    <!-- open graph for social sharing -->
+    <meta property="og:title" content="风云卫星生态监测服务平台">
+    <meta property="og:image" content="images/farm.png">
+    <meta property="og:description" content="og:description">
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/popper.js"></script>
+
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="./js/ol.js"></script>
+
+    <link type="text/css" rel="Stylesheet" href="./css/bootstrap.css">
+
+    <link type="text/css" rel="Stylesheet" href="./css/wv.css">
+    <!-- <script type="text/javascript" src="./js/wv.js"></script> -->
+    <link type="text/css" rel="Stylesheet" href="./css/datepicker.css">
+    <link type="text/css" rel="Stylesheet" href="./css/ol.css">
+
+    <script src="./js/react.development.js"></script>
+    <script src="./js/react-dom.development.js"></script>
+<!--    <script src="./js/babel.min.js"></script>-->
+    
+    
+    <!-- my component    -->
+    <script  src="./js/MeasurementProductDetail.js"></script>
+    <script  src="./js/MeasurementProductRow.js"></script>
+    <script  src="./js/MeasurementRow.js"></script>
+ 
+ 
+    <style type="text/css" data-react-beautiful-dnd-always="0">
+        [data-react-beautiful-dnd-drag-handle="0"] { 
+                  -webkit-touch-callout: none;
+                  -webkit-tap-highlight-color: rgba(0,0,0,0);
+                  touch-action: manipulation;
+                 } [data-react-beautiful-dnd-droppable="0"] { overflow-anchor: none; }
+    </style>
+    <style type="text/css" data-react-beautiful-dnd-dynamic="0">
+        [data-react-beautiful-dnd-drag-handle="0"] { 
+              cursor: -webkit-grab;
+              cursor: grab;
+             }
+    </style>
+    <style type="text/css" data-react-beautiful-dnd-always="1">
+        [data-react-beautiful-dnd-drag-handle="1"] { 
+                  -webkit-touch-callout: none;
+                  -webkit-tap-highlight-color: rgba(0,0,0,0);
+                  touch-action: manipulation;
+                 } [data-react-beautiful-dnd-droppable="1"] { overflow-anchor: none; }
+    </style>
+    <style type="text/css" data-react-beautiful-dnd-dynamic="1">
+        [data-react-beautiful-dnd-drag-handle="1"] { 
+              cursor: -webkit-grab;
+              cursor: grab;
+             }
+    </style>
+</head>
+
+<body class="modal-open" style="height: 100%;">
+    <div data-role="page" id="app">
+        <div class="wv-content" id="wv-content" data-role="content">
+
+            <!-- 右上角工具按钮组 -->
+            <div id="wv-toolbar" role="toolbar" class="wv-toolbar btn-toolbar">
+                <button type="button" id="wv-link-button" title="Share this map" class="wv-toolbar-button btn btn-secondary"><i class="fas fa-share-square fa-2x"></i>
+                </button>
+                <button type="button" id="wv-proj-button" title="Switch projection" class="wv-toolbar-button btn btn-secondary"><i class="fas fa-globe-asia fa-2x"></i> 
+                </button>
+                <button type="button" id="wv-image-button" title="Take a snapshot" class="wv-toolbar-button btn btn-secondary"><i class="fa fa-camera fa-2x"></i> 
+                </button>
+                <button type="button" id="wv-info-button" title="Information" class="wv-toolbar-button wv-status-hide btn btn-secondary"><i class="fa fa-info-circle fa-2x"></i> 
+                </button>
+            </div>
+
+
+            <!-- 左侧图层管理 -->
+            <section id="wv-sidebar">
+                <a href="https://worldview.earthdata.nasa.gov/" title="Click to Reset Worldview to Defaults" id="wv-logo"></a>
+                <div id="productsHoldertoggleButtonHolder" class="toggleButtonHolder" style="display: none;"><a id="accordionTogglerButton" class="accordionToggler dateHolder staticLayers" title="Show Layer Selector">Layers (6)</a>
+                </div>
+                <div id="productsHolder" class="products-holder-case" style="max-height: 960px;">
+                    <ul class="main-nav nav nav-tabs">
+ 
+                        <li class="nav-item" style="display: block;font-size:75%;"><a title="Layers" id="layers-sidebar-tab" class="sidebar-tab first-tab active nav-link"
+                            data-toggle="tab"
+                            href="#panelLayers"
+                            ><i class="productsIcon selected icon-layers"></i>产品图层</a>
+                        </li>
+                        <li class="nav-item" style="display: block;font-size:75%;"><a title="Events" id="events-sidebar-tab" class="sidebar-tab second-tab nav-link"
+                            data-toggle="tab"
+                            href="#panelEvents"
+                            ><i class="productsIcon selected icon-events"></i>灾害事件</a>
+                        </li>
+                        <li class="nav-item" style="display: block;font-size:75%;"><a title="Data download" id="download-sidebar-tab" class="sidebar-tab third-tab nav-link"
+                            data-toggle="tab"
+                            href="#panelDatas"
+                            ><i class="productsIcon selected icon-download"></i>数据下载</a>
+                        </li>
+                        <div class="toggleIconHolder">
+                            <a id="accordionTogglerButton" class="accordionToggler atcollapse arrow" title="Hide"></a>
+                        </div>
+                    </ul>
+
+                    <!-- 面板组内容 -->
+                    <div class="tab-content">
+
+                        <!-- 图层面板 -->
+                        <div class="tab-pane active"
+                            id="panelLayers" role="tabpanel"
+                            >
+                            <div class="scrollbar-hidden" data-simplebar="init" style="max-height: 698px;">
+                                <div class="simplebar-track vertical" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-track horizontal" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+                                    <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+                                        <div class="layer-container sidebar-panel" style="display: block;">
+                                            <div class="layer-group-case">
+                                                <h3 class="head">辅助图层</h3>
+                                                <ul id="overlays" class="category">
+                                                    <li data-react-beautiful-dnd-draggable="0" tabindex="0" data-react-beautiful-dnd-drag-handle="0" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" id="active-Reference_Labels" class="item productsitem layer-hidden" style="position: relative;"><a class="hdanchor hide hideReg bank-item-img layer-hidden" id="hideReference_Labels" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
+                                                        <div class="zot" title=""><b>!</b>
+                                                        </div>
+                                                        <div class="layer-main"><a id="closeactiveReference_Labels" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Place Labels" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Place Labels" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
+                                                            <h4>气溶胶光学厚度产品</h4>
+                                                            <p>FY3D MERSI</p>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+
+                                            <!-- 图层列表 -->
+                                            <div class="layer-group-case">
+                                                <h3 class="head">产品图层</h3>
+                                                <ul id="baselayers" class="category">
+                                                    <li data-react-beautiful-dnd-draggable="1" tabindex="0" data-react-beautiful-dnd-drag-handle="1" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" id="active-VIIRS_SNPP_CorrectedReflectance_TrueColor" class="item productsitem layer-hidden" style="position: relative;"><a class="hdanchor hide hideReg bank-item-img layer-hidden" id="hideVIIRS_SNPP_CorrectedReflectance_TrueColor" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
+                                                        <div class="zot" title=""><b>!</b>
+                                                        </div>
+                                                        <div class="layer-main"><a id="closeactiveVIIRS_SNPP_CorrectedReflectance_TrueColor" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Corrected Reflectance (True Color)" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Corrected Reflectance (True Color)" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
+                                                            <h4>快速大气校正真彩图</h4>
+                                                            <p>FY3D MERSI</p>
+                                                        </div>
+                                                    </li>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 图层面板 end -->
+
+                        <!-- 事件面板 -->
+                        <div class="tab-pane"
+                            id="panelEvents" role="tabpanel">
+                            <div class="scrollbar-hidden" data-simplebar="init" style="max-height: 698px;">
+                                <div class="simplebar-track vertical" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-track horizontal" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+                                    <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+                                        <div id="wv-events"><span class="events-loading-text" style="display: none;"></span>
+                                            <div class="wv-eventslist sidebar-panel" style="display: block;">
+                                                <ul id="wv-eventscontent" class="content map-item-list">
+                                                    <li class="selectorItem item" id="sidebar-event-EONET_4384"><i class="event-icon event-icon-wildfires" title="Wildfires"></i>
+                                                        <h4 class="title">R-1 Ranch Fire<br>Wednesday, August 28</h4>
+                                                        <p class="subtitle"></p>
+                                                    </li> 
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 事件面板 end -->
+
+
+                        <!-- 数据下载面板 -->
+                        <div class="tab-pane"
+                            id="panelDatas" role="tabpanel">
+                            <div class="scrollbar-hidden" data-simplebar="init" style="max-height: 698px;">
+                                <div class="simplebar-track vertical" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-track horizontal" style="visibility: hidden;">
+                                    <div class="simplebar-scrollbar"></div>
+                                </div>
+                                <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+                                    <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+                                        <div id="wv-data">
+                                            <div class="wv-datalist sidebar-panel content">
+                                                <div id="wv-datacontent">
+                                                    <div class="dl-group" value="__NO_PRODUCT">
+                                                        <div class="head">
+                                                            <h3 class="header">Not available for download  <span class="link">(?)</span></h3>
+                                                        </div>
+                                                        <ul class="wv-datacategory" id="wv-data__NO_PRODUCT">
+                                                            <li id="wv-data-__NO_PRODUCTVIIRS_SNPP_CorrectedReflectance_TrueColor" class="item item-static">
+                                                                <h4> Corrected Reflectance (True Color) </h4>
+                                                                <p>Suomi NPP / VIIRS</p>
+                                                            </li>
+           
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 数据下载面板 end -->
+
+
+
+                        <!-- 对比功能面板底部栏 -->
+                        <footer>
+                            <div id="wv-ab-mode-selection-case" class="wv-ab-mode-selection-case" style="display: none;">
+                                <h3>COMPARE MODE:</h3>
+                                <div role="group" class="btn-group-sm btn-group">
+                                    <button type="button" id="compare-swipe-button" disabled="" class="compare-button compare-swipe-button btn btn-secondary disabled">Swipe</button>
+                                    <button type="button" id="compare-opacity-button" class="compare-button compare-opacity-button btn btn-secondary">Opacity</button>
+                                    <button type="button" id="compare-spy-button" class="compare-button compare-spy-button btn btn-secondary">Spy</button>
+                                </div>
+                            </div>
+                            <div class="product-buttons">
+                                <button id="layers-add" class="wv-button layers-add red" 
+                                    data-toggle="modal" data-target="#modalAddLayer"
+                                >
+                                    <span class="button-text">+ 添加产品</span>
+                                </button>
+                                <button id="compare-toggle-button" class="wv-button compare-toggle-button"><span class="button-text">开始比较</span>
+                                </button>
+                            </div>
+                        </footer>
+                        <!-- 对比功能面板底部栏 end -->
+                    </div>
+                </div>
+            </section>
+            <div></div>
+
+
+            <div id="layer-modal" class="layer-modal"></div>
+            <div id="layer-settings-modal"></div>
+
+            <!-- 地图显示区域 -->
+            <div id="wv-map" class="wv-map">
+                <div id="eco-map-geographic" class="wv-map"></div>
+                <!-- <div id="wv-map-geographic" data-proj="geographic" class="wv-map" style="">
+                    <div class="ol-viewport" data-view="21" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;">
+                    </div>
+                    <div class="wv-map-zoom-out wv-map-zoom ui-button ui-corner-all ui-widget" role="button"><i class="fa fa-minus fa-1x"></i>
+                    </div>
+                    <div class="wv-map-zoom-in wv-map-zoom ui-button ui-corner-all ui-widget" role="button"><i class="fa fa-plus fa-1x"></i>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div id="eventsHolder"></div>
+            <div id="imagedownload"></div>
+
+
+            <div id="dlMap"></div>
+
+            <!-- 时间轴 -->
+            <div class="timeline-container">
+                <section id="timeline" class="timeline-inner clearfix">
+                    <div id="timeline-header" class="">
+                        <div id="date-selector-main">
+                            <div class="wv-date-selector-widget">
+                                <div class="input-wrapper input-wrapper-year">
+                                    <div class="date-arrows date-arrow-up" data-interval="year">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="uparrow"></path>
+                                        </svg>
+                                    </div>
+                                    <input type="text" size="4" maxlength="4" class="button-input-group" id="" tabindex="1" step="1" value="2019" style="font-size: 24px;">
+                                    <div class="date-arrows date-arrow-down" data-interval="year">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="downarrow"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-wrapper input-wrapper-month">
+                                    <div class="date-arrows date-arrow-up" data-interval="month">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="uparrow"></path>
+                                        </svg>
+                                    </div>
+                                    <input type="text" size="3" maxlength="3" class="button-input-group" id="" tabindex="2" step="1" value="八月" style="font-size: 24px;">
+                                    <div class="date-arrows date-arrow-down" data-interval="month">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="downarrow"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="input-wrapper input-wrapper-day">
+                                    <div class="date-arrows date-arrow-up" data-interval="day">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="uparrow"></path>
+                                        </svg>
+                                    </div>
+                                    <input type="text" size="2" maxlength="2" class="button-input-group" id="" tabindex="3" step="1" value="30" style="font-size: 24px;">
+                                    <div class="date-arrows date-arrow-down" data-interval="day">
+                                        <svg width="25" height="8">
+                                            <path d="M 12.5,0 25,8 0,8 z" class="downarrow"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="zoom-buttons-group">
+                            <div id="timeline-interval-btn-container" class="interval-btn-container noselect"><span id="current-interval" class="interval-btn interval-btn-active">1 day</span>
+                                <div class="wv-tooltip" style="display: none;">
+                                    <div id="timeline-interval" class="timeline-interval">
+                                        <span id="interval-years" class="interval-btn interval-years">Year</span>
+                                        <span id="interval-months" class="interval-btn interval-months">Month</span>
+                                        <span id="interval-days" class="interval-btn interval-days">Day</span>
+                                        <span id="interval-custom" class="interval-btn interval-custom custom-interval-text" style="display: none;">Custom</span>
+                                        <span id="interval-custom-static" class="interval-btn interval-custom custom-interval-text">Custom</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="button-action-group " id="left-arrow-group" title="Click and hold to animate backwards">
+                                    <svg width="24" height="30">
+                                        <path d="M 10.240764,0 24,15 10.240764,30 0,30 13.759236,15 0,0 10.240764,0 z" class="arrow"></path>
+                                    </svg>
+                                </div>
+                                <div class="button-action-group button-disabled" id="right-arrow-group" title="Click and hold to animate forwards">
+                                    <svg width="24" height="30">
+                                        <path d="M 10.240764,0 24,15 10.240764,30 0,30 13.759236,15 0,0 10.240764,0 z" class="arrow"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+ 
+                    </div>
+ 
+ 
+                    <div id="timeline-hide">
+                        <div class="wv-timeline-hide wv-timeline-hide-double-chevron-right"></div>
+                    </div>
+                </section>
+            </div>
+            <!-- 时间轴 end -->
+
+            <div id="wv-animation-widet-case"></div>
+        </div>
+    </div>
+
+
+    <div id="wv-tour" class="wv-tour"></div>
+    <div id="wv-alerts" class="wv-alerts"></div>
+    <div id="wv-vector-metadata" class="wv-vector-metadata"></div>
+    <div class="backdrop"></div>
+ 
+
+    <!-- 进度条 -->
+    <div id="indicator" style="display: none;">
+        <img src="./EOSDIS Worldview_files/activity.gif"><span>Loading</span>
+    </div>
+
+
+    <!-- 欢迎页面 -->
+<!--     <div tabindex="-1" style="position: relative; z-index: 1050; display: block;">
+        <div class="tour tour-start">
+            <div class="modal show" role="dialog" tabindex="-1" style="display: block;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">欢迎使用风云卫星生态监测服务平台</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="tour-intro">
+                                <p class="intro">
+                                    欢迎使用
+                                </p>
+                            </div>
+                            <div class="tour-box-container">
+                                <div class="tour-box-row">
+                                    <a href="https://worldview.earthdata.nasa.gov/#" class="tour-box wildfire" style="background-image: url(&quot;https://worldview.earthdata.nasa.gov/config/metadata/stories/fires_overview_2019/fires_overview.png&quot;);">
+                                        <div class="tour-box-content">
+                                            <div class="tour-box-header">
+                                                <h3 class="tour-box-title">Satellite Detections of Fire</h3>
+                                            </div>
+                                            <div class="tour-box-description">
+                                                <p>NASA's satellite sensors detect daily fires across the globe</p>
+                                            </div>
+                                        </div>
+                                    </a> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="input-group"><span class="w-100 input-group-text"><input aria-label="Hide this box until a new story has been added." type="checkbox" class="float-right m-0"><span class="ml-2">下次不再显示该页面</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-backdrop show"></div>
+        </div>
+    </div> -->
+    <!-- 欢迎页面 end -->
+
+
+    <!-- test欢迎页面 -->
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- test欢迎页面 end -->
+
+
+    <!-- 添加图层对话框 -->
+    <div class="modal fade" id="modalAddLayer" tabindex="-1" role="dialog" aria-labelledby="modalAddLayerTitle" aria-hidden="true">
+        <div id="layer_picker_component" class="modal-dialog custom-layer-dialog light" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <div id="layer-search" class="layer-search input-group"><input id="layers-search-input" placeholder="搜索" type="search" class="form-control" value=""></div>
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div id="layer-modal-content" class="layer-modal-content">
+                        <div class="scrollbar-visible" data-simplebar="init" style="max-height: 504px;">
+                            <div class="simplebar-track vertical" style="visibility: visible;">
+                                <div class="simplebar-scrollbar" style="height: 172px; transform: translate3d(0px, 0px, 0px);"></div>
+                            </div>
+                            <div class="simplebar-track horizontal" style="visibility: hidden;">
+                                <div class="simplebar-scrollbar"></div>
+                            </div>
+                            <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
+                                <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
+                                    <div class="product-outter-list-case">
+                                        <div class="layer-picker-list-case layers-all" id="productGroupsParent">
+                                            <div id="legacy-all-list">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 添加图层对话框 end -->
+
+
+
+ 
+    <script>
+        
+        //$('#exampleModalScrollable').modal('show');
+        $('#modalAddLayer').modal('show');
+
+
+        //openlayers
+        // import Map from 'ol/Map.js';
+        // import View from 'ol/View.js';
+        // import TileLayer from 'ol/layer/Tile.js';
+        // import OSM from 'ol/source/OSM.js';
+        //MODIS_Terra_CorrectedReflectance_TrueColor/default/2012-07-09/250m/6/13/36.jpg
+        //epsg4326
+        //epsg3857
+        var tcLayer = new ol.layer.Tile({
+            source: new ol.source.XYZ({
+                url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2014-04-09/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg'
+            })
+          });
+
+        var aodLayer = new ol.layer.Tile({
+            source: new ol.source.XYZ({
+                url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'
+            })
+          });
+
+        var map = new ol.Map({
+        layers: [
+            tcLayer,
+            aodLayer
+        ],
+        target: 'eco-map-geographic',
+        view: new ol.View({
+          center: [0, 0],
+          zoom: 2
+        })
+      });
+
+    </script>
+
+    <script>
+        
+        var info = {title:'全国遥感产品',subtitle:'FY3D/MERSI',id:'1',
+                   productArray:[
+                       {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
+                        description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
+                       {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
+                       {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
+                   ]} ;
+         
+        ReactDOM.render(
+            React.createElement(
+                MeasurementRow,
+                {info:info,parentDivId:'productGroupsParent'}
+            )
+            ,
+          document.getElementById('legacy-all-list')
+        );
+//          <MeasurementRow info={info} parentDivId={'productGroupsParent'} />,  type="text/babel"
+
+    </script>
+</body>
+
+</html>

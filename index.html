@@ -47,6 +47,13 @@
     <link type="text/css" rel="Stylesheet" href="./css/datepicker.css">
     <link type="text/css" rel="Stylesheet" href="./css/ol.css">
 
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    
+    <!-- my component    -->
+    <script src="./js/comp_measurement_row.js"></script>
 
  
     <style type="text/css" data-react-beautiful-dnd-always="0">
@@ -146,8 +153,8 @@
                                                         <div class="zot" title=""><b>!</b>
                                                         </div>
                                                         <div class="layer-main"><a id="closeactiveReference_Labels" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Place Labels" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Place Labels" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
-                                                            <h4>Place Labels</h4>
-                                                            <p>© OpenStreetMap contributors, Natural Earth</p>
+                                                            <h4>气溶胶光学厚度产品</h4>
+                                                            <p>FY3D MERSI</p>
                                                         </div>
                                                     </li>
 
@@ -162,8 +169,8 @@
                                                         <div class="zot" title=""><b>!</b>
                                                         </div>
                                                         <div class="layer-main"><a id="closeactiveVIIRS_SNPP_CorrectedReflectance_TrueColor" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Corrected Reflectance (True Color)" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Corrected Reflectance (True Color)" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
-                                                            <h4>Corrected Reflectance (True Color)</h4>
-                                                            <p>Suomi NPP / VIIRS</p>
+                                                            <h4>快速大气校正真彩图</h4>
+                                                            <p>FY3D MERSI</p>
                                                         </div>
                                                     </li>
 
@@ -498,7 +505,16 @@
                                                     <div class="container collapse" id="productGroup1" data-parent="#productGroupsParent">
                                                         <div class="row">
                                                             <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
-                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">大气温湿度产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">地表温度产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">土壤水分产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">植被指数产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">降水量产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">大气水汽总量产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">积雪覆盖产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">海表温度产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">洋面风速产品</a></li>
+                                                                <li id="nasaeo-modis-0-source-Nav" class="source-nav-item nav-item"><a class="nav-link">海冰产品</a></li>
                                                             </ul>
                                                             <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
                                                                 <div class="tab-pane active">
@@ -520,6 +536,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+ 
                                                     </div>
                                                 </div>
                                                 <div class="measurement-row layers-all-layer" id="accordion-legacy-all-blue-marble">
@@ -531,29 +548,9 @@
                                                         </i>
                                                     </div>
                                                     <div class="container collapse" id="productGroup2" data-parent="#productGroupsParent">
-                                                        <div class="row">
-                                                            <ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
-                                                                <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
-                                                            </ul>
-                                                            <div id="blue-marble-nasaeo-modis" class="tab-content col-md-9 col-sm-12">
-                                                                <div class="tab-pane active">
-                                                                    <div>
-                                                                        <ul class="source-settings source-sub-group list-group">
-                                                                            <li id="checkbox-case-BlueMarble_NextGeneration" class="list-group-item">
-                                                                                <div class="wv-checkbox "><input type="checkbox" name="Blue Marble (August 2004)" class="settings-check"><label>Blue Marble (August 2004)</label></div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div class="source-metadata overflow">
-                                                                            <h3 id="modisbluemarbleaugust2004">MODIS Blue Marble (August 2004)</h3>
-                                                                            <p>The MODIS Blue Marble, Next Generation layer is a cloud free, true color composite of MODIS imagery from August 2004.</p>
-                                                                            <p>References: <a href="http://earthobservatory.nasa.gov/Features/BlueMarble/" target="_blank">NASA Earth Observatory - Blue Marble</a>; <a href="http://neo.sci.gsfc.nasa.gov/view.php?datasetId=BlueMarbleNG-TB" target="_blank">NASA Earth Observations - Blue Marble</a></p>
-                                                                        </div>
-                                                                        <div class="metadata-more"><span class="ellipsis">...</span></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                        <div class="row" id="productGroup2Row">
+                                                            
+ 
                                                         </div>
                                                     </div>
                                                 </div>
@@ -751,6 +748,82 @@
           zoom: 2
         })
       });
+
+    </script>
+
+    <script type="text/babel">
+        const productsArray2=[{name:"大气温湿度"},{name:"地表温度"},{name:"土壌水分"},{name:"植被指数"},{name:"降水量"},{name:"大气水汽总量"},{name:"积雪覆盖"},{name:"海温"},{name:"洋面风速"},{name:"海冰"}];
+        //productGroup2Row
+        //<ul class="source-tabs col-md-3 col-sm-12 nav flex-column">
+          //  <li id="nasaeo-modis-0-source-Nav" class="active source-nav-item nav-item"><a class="nav-link">NASA EO / MODIS</a></li>
+        //</ul> 
+
+        class ProductListItem extends React.Component{
+          constructor(props) {
+              super(props);
+              this.pdt = props.pdt;
+              this.state = {active: 0};
+              this.handleClick = this.handleClick.bind(this);
+              this.ai = props.activeitem;
+          }
+          
+          handleClick() {
+            if( this.state.active==0 )
+            {
+                this.setState({active:1}) ;
+            }
+
+          }
+          render () {
+            console.log("--") ;
+            console.log( this.ai ) ;
+            console.log( this.pdt.name ) ;
+            if( this.ai !== this.pdt.name )
+            {
+                return (
+                        <li className="source-nav-item nav-item" onClick={this.props.updateStateProp}><a className="nav-link">{this.pdt.name}</a></li>
+                    );
+            }else
+            {
+                return (
+                    <li className="active source-nav-item nav-item" onClick={this.props.updateStateProp}><a className="nav-link">{this.pdt.name}</a></li>
+                );
+            }
+            
+          }
+        }
+
+        class ProductList extends React.Component{
+          constructor(props) {
+              super(props);
+              this.handleChange = this.handleChange.bind(this);
+              this.state  = {activeitem:productsArray2[0].name} ;
+          }
+          handleChange(event) {
+            console.log(event.target.innerHTML) ;
+            this.setState( {activeitem:event.target.innerHTML} )
+          }
+          render () {
+                console.log("render") ;
+                console.log(this.state.activeitem) ;
+              return (
+                  <ul  className="source-tabs col-md-3 col-sm-12 nav flex-column">
+                        {
+                            productsArray2.map((pdt) =>
+                                <ProductListItem key={pdt.name} updateStateProp={this.handleChange} activeitem={this.state.activeitem} pdt={pdt} />
+                            )
+                        }
+                    </ul>
+              );
+          }
+        }
+
+         
+         
+        ReactDOM.render(
+          <ProductList />,
+          document.getElementById('productGroup2Row')
+        );
 
     </script>
 </body>
