@@ -1,0 +1,11 @@
+1. npm init -y
+2. npm install babel-cli@6 babel-preset-react-app@3
+3. mkdir src
+4. 运行监控代码
+
+
+
+npx babel --watch src --out-dir ./js --presets react-app/prod 
+
+--watch src为监视目录 jsx文件
+--out-dir ./js  为输出js文件目录
