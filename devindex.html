@@ -34,6 +34,7 @@
     <meta property="og:description" content="og:description">
 
     <script src="./js/jquery.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
     <script src="./js/popper.js"></script>
 
     <script type="text/javascript" src="./js/bootstrap.js"></script>
@@ -151,7 +152,7 @@
                                     <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
                                         <div class="layer-container sidebar-panel" style="display: block;">
                                             <div class="layer-group-case">
-                                                <h3 class="head">辅助图层</h3>
+                                                <h3 class="head">辅助及专题产品图层</h3>
                                                 <ul id="overlays" class="category">
                                                     <li data-react-beautiful-dnd-draggable="0" tabindex="0" data-react-beautiful-dnd-drag-handle="0" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" id="active-Reference_Labels" class="item productsitem layer-hidden" style="position: relative;"><a class="hdanchor hide hideReg bank-item-img layer-hidden" id="hideReference_Labels" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
                                                         <div class="zot" title=""><b>!</b>
@@ -167,17 +168,32 @@
 
                                             <!-- 图层列表 -->
                                             <div class="layer-group-case">
-                                                <h3 class="head">产品图层</h3>
-                                                <ul id="baselayers" class="category">
-                                                    <li data-react-beautiful-dnd-draggable="1" tabindex="0" data-react-beautiful-dnd-drag-handle="1" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" id="active-VIIRS_SNPP_CorrectedReflectance_TrueColor" class="item productsitem layer-hidden" style="position: relative;"><a class="hdanchor hide hideReg bank-item-img layer-hidden" id="hideVIIRS_SNPP_CorrectedReflectance_TrueColor" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
+                                                <h3 class="head">底图图层</h3>
+                                                <ul id="sortablebaselayers" class="category" >
+                                                    <li class="item productsitem layer-visible" style="position: relative;">
+                                                        <a class="hdanchor hide hideReg bank-item-img layer-hidden" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
                                                         <div class="zot" title=""><b>!</b>
                                                         </div>
-                                                        <div class="layer-main"><a id="closeactiveVIIRS_SNPP_CorrectedReflectance_TrueColor" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Corrected Reflectance (True Color)" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Corrected Reflectance (True Color)" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
+                                                        <div class="layer-main">
+                                                            <a title="删除图层" class="button wv-layers-close"><i class="fa fa-times"></i></a>
+                                                            <a title="图层选项" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a>
+                                                            <a title="产品说明" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
+                                                            <h4>快速大气校正真彩图</h4>
+                                                            <p>MODIS MERSI</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="item productsitem layer-visible" style="position: relative;">
+                                                        <a class="hdanchor hide hideReg bank-item-img layer-hidden" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
+                                                        <div class="zot" title=""><b>!</b>
+                                                        </div>
+                                                        <div class="layer-main">
+                                                            <a title="删除图层" class="button wv-layers-close"><i class="fa fa-times"></i></a>
+                                                            <a title="图层选项" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a>
+                                                            <a title="产品说明" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
                                                             <h4>快速大气校正真彩图</h4>
                                                             <p>FY3D MERSI</p>
                                                         </div>
                                                     </li>
-
 
                                                 </ul>
                                             </div>
@@ -404,52 +420,7 @@
         <img src="./EOSDIS Worldview_files/activity.gif"><span>Loading</span>
     </div>
 
-
-    <!-- 欢迎页面 -->
-<!--     <div tabindex="-1" style="position: relative; z-index: 1050; display: block;">
-        <div class="tour tour-start">
-            <div class="modal show" role="dialog" tabindex="-1" style="display: block;">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">欢迎使用风云卫星生态监测服务平台</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"></span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="tour-intro">
-                                <p class="intro">
-                                    欢迎使用
-                                </p>
-                            </div>
-                            <div class="tour-box-container">
-                                <div class="tour-box-row">
-                                    <a href="https://worldview.earthdata.nasa.gov/#" class="tour-box wildfire" style="background-image: url(&quot;https://worldview.earthdata.nasa.gov/config/metadata/stories/fires_overview_2019/fires_overview.png&quot;);">
-                                        <div class="tour-box-content">
-                                            <div class="tour-box-header">
-                                                <h3 class="tour-box-title">Satellite Detections of Fire</h3>
-                                            </div>
-                                            <div class="tour-box-description">
-                                                <p>NASA's satellite sensors detect daily fires across the globe</p>
-                                            </div>
-                                        </div>
-                                    </a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="input-group"><span class="w-100 input-group-text"><input aria-label="Hide this box until a new story has been added." type="checkbox" class="float-right m-0"><span class="ml-2">下次不再显示该页面</span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-backdrop show"></div>
-        </div>
-    </div> -->
-    <!-- 欢迎页面 end -->
-
+ 
 
     <!-- test欢迎页面 -->
     <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -482,6 +453,18 @@
 
  
     <script>
+        
+        //图层拖拽
+        $( function() {
+            $( "#sortablebaselayers" ).sortable({
+              revert: true
+            });
+            
+            //$( "ul, li" ).disableSelection();
+          } 
+         );
+        
+        
         
         //$('#exampleModalScrollable').modal('show');
         $('#modalAddLayer').modal('show');
