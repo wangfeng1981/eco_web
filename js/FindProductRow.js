@@ -6,79 +6,84 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var MeasurementRow = function (_React$Component) {
-    _inherits(MeasurementRow, _React$Component);
+var FindProductRow = function (_React$Component) {
+    _inherits(FindProductRow, _React$Component);
 
-    function MeasurementRow(props) {
-        _classCallCheck(this, MeasurementRow);
+    function FindProductRow(props) {
+        _classCallCheck(this, FindProductRow);
 
-        var _this = _possibleConstructorReturn(this, (MeasurementRow.__proto__ || Object.getPrototypeOf(MeasurementRow)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (FindProductRow.__proto__ || Object.getPrototypeOf(FindProductRow)).call(this, props));
 
         _this.info = props.info;
-        console.log('MeasurementRow');
-        console.log(_this.info);
+        _this.productPath = props.productPath;
+        _this.rowid = props.rowid;
         _this.parentDivId = props.parentDivId;
-        _this.state = { currentProductIndex: 0 };
-        _this.updateParentHandler = _this.updateParentHandler.bind(_this);
         return _this;
     }
 
-    _createClass(MeasurementRow, [{
-        key: "updateParentHandler",
-        value: function updateParentHandler(clickIndex) {
-            this.setState({
-                currentProductIndex: clickIndex
-            });
-        }
-    }, {
+    _createClass(FindProductRow, [{
         key: "render",
         value: function render() {
-            var _this2 = this;
-
             return React.createElement(
                 "div",
-                { className: "measurement-row layers-all-layer" },
+                { className: "layers-all-layer" },
                 React.createElement(
                     "div",
-                    { className: "measurement-row-header" },
+                    { className: "layers-all-header has-checkbox" },
                     React.createElement(
                         "h3",
                         null,
-                        this.info.title
+                        this.info.name,
+                        React.createElement("i", { className: "fa fa-info-circle", "data-toggle": "collapse", href: '#findproductrow_' + this.rowid })
                     ),
                     React.createElement(
                         "h5",
                         null,
-                        this.info.subtitle
-                    ),
-                    React.createElement("i", { className: "fa fa-chevron-circle-right arrow-icon",
-                        "data-toggle": "collapse", "data-target": "#measurement_row_" + this.info.id })
+                        this.productPath
+                    )
                 ),
                 React.createElement(
                     "div",
-                    { className: "container collapse", id: "measurement_row_" + this.info.id, "data-parent": '#' + this.parentDivId },
+                    { className: "source-metadata collapse", id: 'findproductrow_' + this.rowid,
+                        "data-parent": '#' + this.parentDivId
+                    },
+                    React.createElement(
+                        "p",
+                        { className: "layer-date-range" },
+                        "\u65F6\u95F4\u533A\u95F4:"
+                    ),
                     React.createElement(
                         "div",
-                        { className: "row" },
+                        null,
                         React.createElement(
-                            "ul",
-                            { className: "source-tabs col-md-3 col-sm-12 nav flex-column" },
-                            this.info.productArray.map(function (obj, index) {
-                                return React.createElement(MeasurementProductRow, {
-                                    key: index,
-                                    currentproductindex: _this2.state.currentProductIndex,
-                                    index: index,
-                                    info: obj,
-                                    updateParent: _this2.updateParentHandler
-                                });
-                            })
+                            "p",
+                            null,
+                            this.info.description
                         ),
-                        React.createElement(MeasurementProductDetail, { info: this.info.productArray[this.state.currentProductIndex] })
+                        React.createElement(
+                            "p",
+                            null,
+                            React.createElement(
+                                "a",
+                                { href: "{this.info.reference}" },
+                                "\u4EA7\u54C1\u8BE6\u7EC6\u8BF4\u660E"
+                            )
+                        )
+                    ),
+                    React.createElement(
+                        "div",
+                        { className: "metadata-more" },
+                        React.createElement(
+                            "span",
+                            { className: "ellipsis up",
+                                "data-toggle": "collapse", href: '#findproductrow_' + this.rowid },
+                            "^"
+                        )
                     )
                 )
             );
         }
     }]);
 
-    return MeasurementRow;
+    return FindProductRow;
 }(React.Component);

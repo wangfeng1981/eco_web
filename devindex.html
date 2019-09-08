@@ -56,6 +56,8 @@
     <script  src="./js/MeasurementProductDetail.js"></script>
     <script  src="./js/MeasurementProductRow.js"></script>
     <script  src="./js/MeasurementRow.js"></script>
+    <script  src="./js/FindProductRow.js"></script>
+    <script  src="./js/LayerPickPanel.js"></script>
  
  
     <style type="text/css" data-react-beautiful-dnd-always="0">
@@ -473,41 +475,7 @@
 
 
     <!-- 添加图层对话框 -->
-    <div class="modal fade" id="modalAddLayer" tabindex="-1" role="dialog" aria-labelledby="modalAddLayerTitle" aria-hidden="true">
-        <div id="layer_picker_component" class="modal-dialog custom-layer-dialog light" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <div id="layer-search" class="layer-search input-group"><input id="layers-search-input" placeholder="搜索" type="search" class="form-control" value=""></div>
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                </div>
-                <div class="modal-body">
-                    <div id="layer-modal-content" class="layer-modal-content">
-                        <div class="scrollbar-visible" data-simplebar="init" style="max-height: 504px;">
-                            <div class="simplebar-track vertical" style="visibility: visible;">
-                                <div class="simplebar-scrollbar" style="height: 172px; transform: translate3d(0px, 0px, 0px);"></div>
-                            </div>
-                            <div class="simplebar-track horizontal" style="visibility: hidden;">
-                                <div class="simplebar-scrollbar"></div>
-                            </div>
-                            <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
-                                <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
-                                    <div class="product-outter-list-case">
-                                        <div class="layer-picker-list-case layers-all" id="productGroupsParent">
-                                            <div id="legacy-all-list">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <div id="modalContainerForAddLayer"></div>
     <!-- 添加图层对话框 end -->
 
 
@@ -555,22 +523,43 @@
 
     <script>
         
-        var info = {title:'全国遥感产品',subtitle:'FY3D/MERSI',id:'1',
-                   productArray:[
-                       {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
-                        description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
-                       {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
-                       {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
-                   ]} ;
+        
+        var info1 = {title:'全国遥感产品',subtitle:'FY3D/MERSI',id:'1',
+           productArray:[
+               {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
+                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
+               {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
+               {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
+           ]} ;
+        var info2 = {title:'山东遥感产品',subtitle:'FY3D/MERSI',id:'2',
+           productArray:[
+               {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
+                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
+               {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
+               {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
+           ]} ;
+        
+        var groupInfo = {productGroupArray:[info1,info2]} ;
+        
          
+//        ReactDOM.render(
+//            React.createElement(
+//                MeasurementRow,
+//                {info:info,parentDivId:'productGroupsParent'}
+//            )
+//            ,
+//          document.getElementById('legacy-all-list')
+//        );
+        
         ReactDOM.render(
             React.createElement(
-                MeasurementRow,
-                {info:info,parentDivId:'productGroupsParent'}
+                LayerPickPanel,
+                {info:groupInfo}
             )
             ,
-          document.getElementById('legacy-all-list')
+          document.getElementById('modalContainerForAddLayer')
         );
+        
 //          <MeasurementRow info={info} parentDivId={'productGroupsParent'} />,  type="text/babel"
 
     </script>
