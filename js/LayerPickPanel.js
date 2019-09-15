@@ -17,25 +17,37 @@ var LayerPickPanel = function (_React$Component) {
         _this.state = { info: props.info, searchtext: "" };
         _this.onSearchInputTextChanged = _this.onSearchInputTextChanged.bind(_this);
 
+        _this.customForceUpdate = _this.customForceUpdate.bind(_this);
+
+        _this.connector = props.theconnector;
+
         return _this;
     }
 
     _createClass(LayerPickPanel, [{
-        key: "onSearchInputTextChanged",
+        key: 'onSearchInputTextChanged',
         value: function onSearchInputTextChanged(event) {
             console.log('text change');
             this.setState({ searchtext: event.target.value });
         }
     }, {
-        key: "render",
+        key: 'customForceUpdate',
+        value: function customForceUpdate() {
+
+            this.setState({ info: this.state.info, searchtext: '' });
+        }
+    }, {
+        key: 'render',
         value: function render() {
+            var _this2 = this;
+
             var rows = [];
             if (this.state.searchtext == "") {
                 for (var index in this.state.info.productGroupArray) {
                     rows.push(React.createElement(MeasurementRow, {
                         key: index,
                         info: this.state.info.productGroupArray[index],
-                        parentDivId: "productGroupsParent" }));
+                        parentDivId: 'productGroupsParent', connector: this.connector }));
                 }
             } else {
                 var tempindex = 0;
@@ -58,8 +70,9 @@ var LayerPickPanel = function (_React$Component) {
                                 key: tempindex,
                                 info: pdtOne,
                                 productPath: groupObj.title + '/' + pdtOne.name,
-                                parentDivId: "productGroupsParent",
-                                rowid: tempindex
+                                parentDivId: 'productGroupsParent',
+                                rowid: tempindex,
+                                connector: _this2.connector
                             }));
                             tempindex++;
                         }
@@ -72,72 +85,72 @@ var LayerPickPanel = function (_React$Component) {
             }
 
             return React.createElement(
-                "div",
-                { className: "modal fade", id: "modalAddLayer", tabIndex: "-1",
-                    role: "dialog",
-                    "aria-labelledby": "modalAddLayerTitle", "aria-hidden": "true" },
+                'div',
+                { className: 'modal fade', id: 'modalAddLayer', tabIndex: '-1',
+                    role: 'dialog',
+                    'aria-labelledby': 'modalAddLayerTitle', 'aria-hidden': 'true' },
                 React.createElement(
-                    "div",
-                    { id: "layer_picker_component", className: "modal-dialog custom-layer-dialog light", role: "document" },
+                    'div',
+                    { id: 'layer_picker_component', className: 'modal-dialog custom-layer-dialog light', role: 'document' },
                     React.createElement(
-                        "div",
-                        { className: "modal-content" },
+                        'div',
+                        { className: 'modal-content' },
                         React.createElement(
-                            "div",
-                            { className: "modal-header" },
+                            'div',
+                            { className: 'modal-header' },
                             React.createElement(
-                                "h5",
-                                { className: "modal-title" },
+                                'h5',
+                                { className: 'modal-title' },
                                 React.createElement(
-                                    "div",
-                                    { id: "layer-search", className: "layer-search input-group" },
-                                    React.createElement("input", { id: "layers-search-input", placeholder: "\u641C\u7D22", type: "search", className: "form-control", onChange: this.onSearchInputTextChanged })
+                                    'div',
+                                    { id: 'layer-search', className: 'layer-search input-group' },
+                                    React.createElement('input', { id: 'layers-search-input', placeholder: '\u641C\u7D22', type: 'search', className: 'form-control', onChange: this.onSearchInputTextChanged, value: this.state.searchtext })
                                 )
                             ),
                             React.createElement(
-                                "button",
-                                { type: "button", className: "close", "data-dismiss": "modal", "aria-label": "Close" },
+                                'button',
+                                { type: 'button', className: 'close', 'data-dismiss': 'modal', 'aria-label': 'Close' },
                                 React.createElement(
-                                    "span",
-                                    { "aria-hidden": "true" },
-                                    "\xD7"
+                                    'span',
+                                    { 'aria-hidden': 'true' },
+                                    '\xD7'
                                 )
                             )
                         ),
                         React.createElement(
-                            "div",
-                            { className: "modal-body" },
+                            'div',
+                            { className: 'modal-body' },
                             React.createElement(
-                                "div",
-                                { id: "layer-modal-content", className: "layer-modal-content" },
+                                'div',
+                                { id: 'layer-modal-content', className: 'layer-modal-content' },
                                 React.createElement(
-                                    "div",
-                                    { className: "scrollbar-visible", "data-simplebar": "init", style: { maxHeight: '504px' } },
+                                    'div',
+                                    { className: 'scrollbar-visible', 'data-simplebar': 'init', style: { maxHeight: '504px' } },
                                     React.createElement(
-                                        "div",
-                                        { className: "simplebar-track vertical", style: { visibility: 'visible' } },
-                                        React.createElement("div", { className: "simplebar-scrollbar", style: ({ height: '172px' }, { transform: 'translate3d(0px, 0px, 0px)' }) })
+                                        'div',
+                                        { className: 'simplebar-track vertical', style: { visibility: 'visible' } },
+                                        React.createElement('div', { className: 'simplebar-scrollbar', style: ({ height: '172px' }, { transform: 'translate3d(0px, 0px, 0px)' }) })
                                     ),
                                     React.createElement(
-                                        "div",
-                                        { className: "simplebar-track horizontal", style: { visibility: 'hidden' } },
-                                        React.createElement("div", { className: "simplebar-scrollbar" })
+                                        'div',
+                                        { className: 'simplebar-track horizontal', style: { visibility: 'hidden' } },
+                                        React.createElement('div', { className: 'simplebar-scrollbar' })
                                     ),
                                     React.createElement(
-                                        "div",
-                                        { className: "simplebar-scroll-content", style: ({ paddingRight: '17px' }, { marginBottom: '-34px' }) },
+                                        'div',
+                                        { className: 'simplebar-scroll-content', style: ({ paddingRight: '17px' }, { marginBottom: '-34px' }) },
                                         React.createElement(
-                                            "div",
-                                            { className: "simplebar-content", style: ({ paddingBottom: '17px' }, { marginRight: '-17px' }) },
+                                            'div',
+                                            { className: 'simplebar-content', style: ({ paddingBottom: '17px' }, { marginRight: '-17px' }) },
                                             React.createElement(
-                                                "div",
-                                                { className: "product-outter-list-case" },
+                                                'div',
+                                                { className: 'product-outter-list-case' },
                                                 React.createElement(
-                                                    "div",
-                                                    { className: "layer-picker-list-case layers-all", id: "productGroupsParent" },
+                                                    'div',
+                                                    { className: 'layer-picker-list-case layers-all', id: 'productGroupsParent' },
                                                     React.createElement(
-                                                        "div",
-                                                        { id: "legacy-all-list" },
+                                                        'div',
+                                                        { id: 'legacy-all-list' },
                                                         rows
                                                     )
                                                 )

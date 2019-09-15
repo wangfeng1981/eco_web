@@ -20,6 +20,7 @@ var MeasurementRow = function (_React$Component) {
         _this.parentDivId = props.parentDivId;
         _this.state = { currentProductIndex: 0 };
         _this.updateParentHandler = _this.updateParentHandler.bind(_this);
+        _this.connector = props.connector;
         return _this;
     }
 
@@ -73,7 +74,9 @@ var MeasurementRow = function (_React$Component) {
                                 });
                             })
                         ),
-                        React.createElement(MeasurementProductDetail, { info: this.info.productArray[this.state.currentProductIndex] })
+                        React.createElement(MeasurementProductDetail, { info: this.info.productArray[this.state.currentProductIndex],
+                            connector: this.connector
+                        })
                     )
                 )
             );

@@ -18,66 +18,121 @@ var FindProductRow = function (_React$Component) {
         _this.productPath = props.productPath;
         _this.rowid = props.rowid;
         _this.parentDivId = props.parentDivId;
+
+        //function methods
+        _this.clickHandler = _this.clickHandler.bind(_this);
+
+        _this.connector = props.connector;
+        var tempcheckstr = '';
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = props.connector.layerlist[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var obj = _step.value;
+
+                if (obj.pid == props.info.pid) {
+                    tempcheckstr = 'checked';
+                    break;
+                }
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+
+        _this.state = { checkstr: tempcheckstr };
+
         return _this;
     }
 
     _createClass(FindProductRow, [{
-        key: "render",
+        key: 'clickHandler',
+        value: function clickHandler(e) {
+            var _this2 = this;
+
+            if (e.target.tagName.toLowerCase() == 'div') {
+                if (this.state.checkstr == '') {
+                    this.setState({ checkstr: 'checked' });
+                    this.connector.layerlist.push(this.info);
+                    this.connector.layerPanelCallback();
+                } else {
+                    this.setState({ checkstr: '' });
+                    this.connector.layerlist = this.connector.layerlist.filter(function (item) {
+                        return item.pid !== _this2.info.pid;
+                    });
+                    this.connector.layerPanelCallback();
+                }
+            }
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return React.createElement(
-                "div",
-                { className: "layers-all-layer" },
+                'div',
+                { className: 'layers-all-layer' },
                 React.createElement(
-                    "div",
-                    { className: "layers-all-header has-checkbox" },
+                    'div',
+                    { className: "layers-all-header has-checkbox " + this.state.checkstr, onClick: this.clickHandler },
                     React.createElement(
-                        "h3",
+                        'h3',
                         null,
                         this.info.name,
-                        React.createElement("i", { className: "fa fa-info-circle", "data-toggle": "collapse", href: '#findproductrow_' + this.rowid })
+                        React.createElement('i', { className: 'fa fa-info-circle', 'data-toggle': 'collapse', href: '#findproductrow_' + this.rowid })
                     ),
                     React.createElement(
-                        "h5",
+                        'h5',
                         null,
                         this.productPath
                     )
                 ),
                 React.createElement(
-                    "div",
-                    { className: "source-metadata collapse", id: 'findproductrow_' + this.rowid,
-                        "data-parent": '#' + this.parentDivId
+                    'div',
+                    { className: 'source-metadata collapse', id: 'findproductrow_' + this.rowid,
+                        'data-parent': '#' + this.parentDivId
                     },
                     React.createElement(
-                        "p",
-                        { className: "layer-date-range" },
-                        "\u65F6\u95F4\u533A\u95F4:"
+                        'p',
+                        { className: 'layer-date-range' },
+                        '\u65F6\u95F4\u533A\u95F4:'
                     ),
                     React.createElement(
-                        "div",
+                        'div',
                         null,
                         React.createElement(
-                            "p",
+                            'p',
                             null,
                             this.info.description
                         ),
                         React.createElement(
-                            "p",
+                            'p',
                             null,
                             React.createElement(
-                                "a",
-                                { href: "{this.info.reference}" },
-                                "\u4EA7\u54C1\u8BE6\u7EC6\u8BF4\u660E"
+                                'a',
+                                { href: '{this.info.reference}' },
+                                '\u4EA7\u54C1\u8BE6\u7EC6\u8BF4\u660E'
                             )
                         )
                     ),
                     React.createElement(
-                        "div",
-                        { className: "metadata-more" },
+                        'div',
+                        { className: 'metadata-more' },
                         React.createElement(
-                            "span",
-                            { className: "ellipsis up",
-                                "data-toggle": "collapse", href: '#findproductrow_' + this.rowid },
-                            "^"
+                            'span',
+                            { className: 'ellipsis up',
+                                'data-toggle': 'collapse', href: '#findproductrow_' + this.rowid },
+                            '^'
                         )
                     )
                 )

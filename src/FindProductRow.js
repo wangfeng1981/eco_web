@@ -6,14 +6,50 @@ class FindProductRow extends React.Component
         this.productPath = props.productPath ;
         this.rowid = props.rowid;
         this.parentDivId = props.parentDivId;
+        
+        //function methods
+        this.clickHandler = this.clickHandler.bind(this) ;
+        
+        this.connector = props.connector ;
+        let tempcheckstr = '' ;
+        for(let obj of props.connector.layerlist ) {  
+            if( obj.pid == props.info.pid )
+            {
+                tempcheckstr = 'checked' ;
+                break ;
+            }
+        }
+        this.state = {checkstr:tempcheckstr } ;
+        
+    }
+    
+    clickHandler(e)
+    {
+        if( e.target.tagName.toLowerCase() == 'div' )
+        {
+            if( this.state.checkstr=='' )
+            {
+                this.setState( {checkstr:'checked'} ) ;
+                this.connector.layerlist.push( this.info ) ;    
+                this.connector.layerPanelCallback() ;
+            }
+            else
+            {
+                this.setState( {checkstr:''} ) ;
+                this.connector.layerlist = this.connector.layerlist.filter(item => item.pid !==  this.info.pid ) ;
+                this.connector.layerPanelCallback() ; 
+            }
+        }
+        
     }
     
     render(){
         return (
 
                     <div className="layers-all-layer">
-                        <div className="layers-all-header has-checkbox">
-                            <h3>{this.info.name}<i className="fa fa-info-circle" data-toggle="collapse" href={'#findproductrow_'+this.rowid}></i></h3>
+                        <div className={"layers-all-header has-checkbox " + this.state.checkstr} onClick={this.clickHandler} >
+                            <h3>{this.info.name}<i className="fa fa-info-circle" data-toggle="collapse" href={'#findproductrow_'+this.rowid} ></i>
+                            </h3>
                             <h5>{this.productPath}</h5>
                         </div>
                         <div className="source-metadata collapse"  id={'findproductrow_'+this.rowid}

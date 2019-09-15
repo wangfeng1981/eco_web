@@ -10,6 +10,7 @@ class MeasurementRow extends React.Component
         this.parentDivId = props.parentDivId ;
         this.state = {currentProductIndex:0} ;
         this.updateParentHandler = this.updateParentHandler.bind(this) ;
+        this.connector = props.connector ;
     }
     
     updateParentHandler(clickIndex){
@@ -46,7 +47,9 @@ class MeasurementRow extends React.Component
                                                 )
                             }
                         </ul>
-                        <MeasurementProductDetail info={this.info.productArray[this.state.currentProductIndex]} />
+                        <MeasurementProductDetail info={this.info.productArray[this.state.currentProductIndex]} 
+                        connector={this.connector} 
+                        />
                     </div>
                 </div>
             </div>

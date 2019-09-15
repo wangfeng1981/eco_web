@@ -59,6 +59,8 @@
     <script  src="./js/MeasurementRow.js"></script>
     <script  src="./js/FindProductRow.js"></script>
     <script  src="./js/LayerPickPanel.js"></script>
+    <script  src="./js/LayerPanelItem.js"></script>
+    <script  src="./js/LayerManagePanel.js"></script>
  
  
     <style type="text/css" data-react-beautiful-dnd-always="0">
@@ -135,72 +137,10 @@
                     </ul>
 
                     <!-- 面板组内容 -->
-                    <div class="tab-content">
+                    <div id="tabContentForLayersEvents" class="tab-content">
 
                         <!-- 图层面板 -->
-                        <div class="tab-pane active"
-                            id="panelLayers" role="tabpanel"
-                            >
-                            <div class="scrollbar-hidden" data-simplebar="init" style="max-height: 698px;">
-                                <div class="simplebar-track vertical" style="visibility: hidden;">
-                                    <div class="simplebar-scrollbar"></div>
-                                </div>
-                                <div class="simplebar-track horizontal" style="visibility: hidden;">
-                                    <div class="simplebar-scrollbar"></div>
-                                </div>
-                                <div class="simplebar-scroll-content" style="padding-right: 17px; margin-bottom: -34px;">
-                                    <div class="simplebar-content" style="padding-bottom: 17px; margin-right: -17px;">
-                                        <div class="layer-container sidebar-panel" style="display: block;">
-                                            <div class="layer-group-case">
-                                                <h3 class="head">辅助及专题产品图层</h3>
-                                                <ul id="overlays" class="category">
-                                                    <li data-react-beautiful-dnd-draggable="0" tabindex="0" data-react-beautiful-dnd-drag-handle="0" aria-roledescription="Draggable item. Press space bar to lift" draggable="false" id="active-Reference_Labels" class="item productsitem layer-hidden" style="position: relative;"><a class="hdanchor hide hideReg bank-item-img layer-hidden" id="hideReference_Labels" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
-                                                        <div class="zot" title=""><b>!</b>
-                                                        </div>
-                                                        <div class="layer-main"><a id="closeactiveReference_Labels" title="Remove Layer" class="button wv-layers-close"><i class="fa fa-times"></i></a><a title="Layer options for Place Labels" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a><a title="Layer description for Place Labels" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
-                                                            <h4>气溶胶光学厚度产品</h4>
-                                                            <p>FY3D MERSI</p>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <!-- 图层列表 -->
-                                            <div class="layer-group-case">
-                                                <h3 class="head">底图图层</h3>
-                                                <ul id="sortablebaselayers" class="category" >
-                                                    <li class="item productsitem layer-visible" style="position: relative;">
-                                                        <a class="hdanchor hide hideReg bank-item-img layer-hidden" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
-                                                        <div class="zot" title=""><b>!</b>
-                                                        </div>
-                                                        <div class="layer-main">
-                                                            <a title="删除图层" class="button wv-layers-close"><i class="fa fa-times"></i></a>
-                                                            <a title="图层选项" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a>
-                                                            <a title="产品说明" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
-                                                            <h4>快速大气校正真彩图</h4>
-                                                            <p>MODIS MERSI</p>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item productsitem layer-visible" style="position: relative;">
-                                                        <a class="hdanchor hide hideReg bank-item-img layer-hidden" title="Show Layer"><i class="far fa-eye-slash layer-eye-icon"></i></a>
-                                                        <div class="zot" title=""><b>!</b>
-                                                        </div>
-                                                        <div class="layer-main">
-                                                            <a title="删除图层" class="button wv-layers-close"><i class="fa fa-times"></i></a>
-                                                            <a title="图层选项" class="wv-layers-options"><i class="fas fa-sliders-h wv-layers-options-icon"></i></a>
-                                                            <a title="产品说明" class="wv-layers-info"><i class="fa fa-info wv-layers-info-icon"></i></a>
-                                                            <h4>快速大气校正真彩图</h4>
-                                                            <p>FY3D MERSI</p>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="tab-pane active" id="panelLayers" role="tabpanel">
                         </div>
                         <!-- 图层面板 end -->
 
@@ -282,8 +222,9 @@
                                 </div>
                             </div>
                             <div class="product-buttons">
+                                <!-- data-target="#modalAddLayer" -->
                                 <button id="layers-add" class="wv-button layers-add red" 
-                                    data-toggle="modal" data-target="#modalAddLayer"
+                                    data-toggle="modal" onclick="showAddLayerModel()"
                                 >
                                     <span class="button-text">+ 添加产品</span>
                                 </button>
@@ -459,6 +400,9 @@
             $( "#sortablebaselayers" ).sortable({
               revert: true
             });
+            $( "#sortableoverlays" ).sortable({
+              revert: true
+            });
             
             //$( "ul, li" ).disableSelection();
           } 
@@ -469,6 +413,13 @@
         //$('#exampleModalScrollable').modal('show');
         $('#modalAddLayer').modal('show');
 
+
+        function showAddLayerModel()
+        {
+            //更新添加图层对话框中checkbox状态
+            dialogOfAddLayerRender.customForceUpdate() ;
+            $('#modalAddLayer').modal('show');
+        }
 
         //openlayers
         // import Map from 'ol/Map.js';
@@ -509,17 +460,19 @@
         
         var info1 = {title:'全国遥感产品',subtitle:'FY3D/MERSI',id:'1',
            productArray:[
-               {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
-                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
-               {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
-               {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
+               {pid:1,
+                name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
+                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#',url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'},
+               {pid:2,name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#',url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'},
+               {pid:3,name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#',url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'}
            ]} ;
         var info2 = {title:'山东遥感产品',subtitle:'FY3D/MERSI',id:'2',
            productArray:[
-               {name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
-                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#'},
-               {name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#'},
-               {name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#'}
+               {pid:11,name:'归一化植被指数',longname:'归一化植被指数(NDVI) 2010-2019',
+                description:"反映土地覆盖植被状况的一种遥感指标，定义为近红外通道与可见光通道反射率之差与之和的商。遥感影像中，近红外波段的反射值与红光波段的反射值之差比上两者之和。",reference:'#', url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'
+               },
+               {pid:12,name:'叶面积指数',longname:'叶面积指数(LAI) 2010-2019',description:"叶面积指数（leaf area index）又叫叶面积系数，是指单位土地面积上植物叶片总面积占土地面积的倍数。即：叶面积指数=叶片总面积/土地面积。>",reference:'#',url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'},
+               {pid:13,name:'地表温度',longname:'地表温度(LST) 2010-2019',description:"经典的劈窗算法是基于AVHRR所观测的热辐射数据为基础。它源于对地表热传导方程的求解，因而不同的求解算法会衍生不同的劈窗算法，但其一推导般的的公式基本相同。",reference:'#',url:'https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_Aerosol/default/2014-04-09/GoogleMapsCompatible_Level6/{z}/{y}/{x}.png'}
            ]} ;
         
         var groupInfo = {productGroupArray:[info1,info2]} ;
@@ -534,17 +487,30 @@
 //          document.getElementById('legacy-all-list')
 //        );
         
-        ReactDOM.render(
+        
+        //layers connector
+        var connecter = { layerPanelCallback:null ,
+                        layerlist:[] } ;
+        
+        var dialogOfAddLayerRender = ReactDOM.render(
             React.createElement(
                 LayerPickPanel,
-                {info:groupInfo}
+                {info:groupInfo , theconnector:connecter }
             )
             ,
           document.getElementById('modalContainerForAddLayer')
         );
         
-//          <MeasurementRow info={info} parentDivId={'productGroupsParent'} />,  type="text/babel"
-
+        ReactDOM.render(
+            React.createElement(
+                LayerManagePanel,
+                {info:groupInfo , theconnector:connecter  }
+            )
+            ,
+          document.getElementById('panelLayers')
+        );
+        
+        
     </script>
 </body>
 

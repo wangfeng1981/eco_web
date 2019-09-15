@@ -4,8 +4,11 @@ class LayerPickPanel extends React.Component
         super(props) ;
         this.state = {info:props.info , searchtext: ""} ;
         this.onSearchInputTextChanged = this.onSearchInputTextChanged.bind(this) ;
-
+    
+        this.customForceUpdate = this.customForceUpdate.bind(this) ;
         
+        this.connector = props.theconnector ;
+
     }
     
     onSearchInputTextChanged(event)
@@ -14,6 +17,11 @@ class LayerPickPanel extends React.Component
         this.setState({searchtext: event.target.value});
     }
     
+    customForceUpdate()
+    {
+        
+        this.setState( {info:this.state.info ,searchtext:'' } );
+    }
     
     render(){
         let rows = [] ;
@@ -25,7 +33,7 @@ class LayerPickPanel extends React.Component
                     <MeasurementRow 
                     key={index} 
                     info={this.state.info.productGroupArray[index]} 
-                    parentDivId='productGroupsParent' />
+                    parentDivId='productGroupsParent' connector={this.connector} />
                 )
             }
         }else
@@ -57,6 +65,7 @@ class LayerPickPanel extends React.Component
                                 productPath={groupObj.title+'/'+pdtOne.name}
                                 parentDivId='productGroupsParent'
                                 rowid={tempindex}
+                                connector={this.connector}
                             />
                             )
                         tempindex ++ ;
@@ -75,7 +84,7 @@ class LayerPickPanel extends React.Component
                     <div className="modal-header">
                         <h5 className="modal-title">
                             <div id="layer-search" className="layer-search input-group">
-                                <input id="layers-search-input" placeholder="搜索" type="search" className="form-control"  onChange={this.onSearchInputTextChanged} />
+                                <input id="layers-search-input" placeholder="搜索" type="search" className="form-control"  onChange={this.onSearchInputTextChanged} value={this.state.searchtext} />
                             </div>
                         </h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
